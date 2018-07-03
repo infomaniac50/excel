@@ -21,11 +21,11 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-*/
+ */
 namespace Port\Spreadsheet\Tests;
 
-use Port\Spreadsheet\ExcelWriter;
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use Port\Spreadsheet\ExcelWriter;
 
 /**
  * {@inheritDoc}
@@ -95,7 +95,7 @@ class ExcelWriterTest extends \PHPUnit_Framework_TestCase
     public function testWriteItemWithoutSheetTitle()
     {
         $outputFile = new \SplFileObject(tempnam(sys_get_temp_dir(), null));
-        $writer = new ExcelWriter($outputFile);
+        $writer     = new ExcelWriter($outputFile);
 
         $writer->prepare();
 
@@ -129,7 +129,6 @@ class ExcelWriterTest extends \PHPUnit_Framework_TestCase
         // Values should be at first line
         $this->assertEquals(array('col 1 value', 'col 2 value', 'col 3 value'), $sheet[0]);
     }
-
 
     /**
      * Test that column names prepended at first row

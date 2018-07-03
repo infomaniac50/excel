@@ -21,7 +21,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-*/
+ */
 namespace Port\Spreadsheet\Tests;
 
 use Port\Spreadsheet\ExcelReader;
@@ -46,7 +46,7 @@ class ExcelReaderTest extends \PHPUnit_Framework_TestCase
      */
     public function testCountWithoutHeaders()
     {
-        $file = new \SplFileObject(__DIR__.'/fixtures/data_no_column_headers.xls');
+        $file   = new \SplFileObject(__DIR__.'/fixtures/data_no_column_headers.xls');
         $reader = new ExcelReader($file);
         $this->assertEquals(3, $reader->count());
     }
@@ -56,7 +56,7 @@ class ExcelReaderTest extends \PHPUnit_Framework_TestCase
      */
     public function testCountWithHeaders()
     {
-        $file = new \SplFileObject(__DIR__.'/fixtures/data_column_headers.xlsx');
+        $file   = new \SplFileObject(__DIR__.'/fixtures/data_column_headers.xlsx');
         $reader = new ExcelReader($file, 0);
         $this->assertEquals(3, $reader->count());
     }
@@ -66,7 +66,7 @@ class ExcelReaderTest extends \PHPUnit_Framework_TestCase
      */
     public function testIterate()
     {
-        $file = new \SplFileObject(__DIR__.'/fixtures/data_column_headers.xlsx');
+        $file   = new \SplFileObject(__DIR__.'/fixtures/data_column_headers.xlsx');
         $reader = new ExcelReader($file, 0);
         foreach ($reader as $row) {
             $this->assertInternalType('array', $row);
@@ -79,7 +79,7 @@ class ExcelReaderTest extends \PHPUnit_Framework_TestCase
      */
     public function testMultiSheet()
     {
-        $file = new \SplFileObject(__DIR__.'/fixtures/data_multi_sheet.xls');
+        $file         = new \SplFileObject(__DIR__.'/fixtures/data_multi_sheet.xls');
         $sheet1reader = new ExcelReader($file, null, 0);
         $this->assertEquals(3, $sheet1reader->count());
 
@@ -92,7 +92,7 @@ class ExcelReaderTest extends \PHPUnit_Framework_TestCase
      */
     public function testMaxRowNumb()
     {
-        $file = new \SplFileObject(__DIR__.'/fixtures/data_no_column_headers.xls');
+        $file   = new \SplFileObject(__DIR__.'/fixtures/data_no_column_headers.xls');
         $reader = new ExcelReader($file, null, null, null, 1000);
         $this->assertEquals(3, $reader->count());
 
@@ -100,7 +100,7 @@ class ExcelReaderTest extends \PHPUnit_Framework_TestCase
         //high last row number
         $file = new \SplFileObject(__DIR__.'/fixtures/data_extreme_last_row.xlsx');
 
-        $max = 5;
+        $max    = 5;
         $reader = new ExcelReader($file, null, null, null, $max);
         $this->assertEquals($max, $reader->count());
     }

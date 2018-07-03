@@ -21,12 +21,12 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-*/
+ */
 namespace Port\Spreadsheet;
 
-use Port\Reader\CountableReader;
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use Port\Reader\CountableReader;
 
 /**
  * Reads Excel files with the help of PHPExcel
@@ -89,7 +89,7 @@ class ExcelReader implements CountableReader, \SeekableIterator
         $sheet = $excel->getActiveSheet();
 
         if ($maxRows && $maxRows < $sheet->getHighestDataRow()) {
-            $maxColumn = $sheet->getHighestDataColumn();
+            $maxColumn       = $sheet->getHighestDataColumn();
             $this->worksheet = $sheet->rangeToArray('A1:'.$maxColumn.$maxRows);
         } else {
             $this->worksheet = $excel->getActiveSheet()->toArray();
@@ -169,7 +169,7 @@ class ExcelReader implements CountableReader, \SeekableIterator
     public function setHeaderRowNumber($rowNumber)
     {
         $this->headerRowNumber = $rowNumber;
-        $this->columnHeaders = $this->worksheet[$rowNumber];
+        $this->columnHeaders   = $this->worksheet[$rowNumber];
     }
 
     /**
@@ -185,7 +185,7 @@ class ExcelReader implements CountableReader, \SeekableIterator
      */
     public function valid()
     {
-         return isset($this->worksheet[$this->pointer]);
+        return isset($this->worksheet[$this->pointer]);
     }
 
     /**
