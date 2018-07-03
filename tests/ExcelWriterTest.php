@@ -36,6 +36,9 @@ class ExcelWriterTest extends \PHPUnit_Framework_TestCase
         }
     }
 
+    /**
+     *
+     */
     public function testWriteItemAppendWithSheetTitle()
     {
         $file = tempnam(sys_get_temp_dir(), null);
@@ -80,6 +83,9 @@ class ExcelWriterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(2, $excel->getSheetByName('Sheet 2')->getHighestRow());
     }
 
+    /**
+     *
+     */
     public function testWriteItemWithoutSheetTitle()
     {
         $outputFile = new \SplFileObject(tempnam(sys_get_temp_dir(), null));
