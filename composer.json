@@ -1,5 +1,5 @@
 {
-    "name": "portphp/excel",
+    "name": "portphp/spreadsheet",
     "description": "Excel reader and writer for Port",
     "license": "MIT",
     "homepage": "https://github.com/portphp",
