@@ -117,9 +117,9 @@ class ExcelWriterTest extends \PHPUnit_Framework_TestCase
         $writer = new ExcelWriter(new \SplFileObject($file, 'w'), null, 'Xlsx');
         $writer->prepare();
         $writer->writeItem(array(
-            'col 1 name'=>'col 1 value',
-            'col 2 name'=>'col 2 value',
-            'col 3 name'=>'col 3 value',
+            'col 1 name' => 'col 1 value',
+            'col 2 name' => 'col 2 value',
+            'col 3 name' => 'col 3 value',
         ));
         $writer->finish();
 
@@ -145,9 +145,9 @@ class ExcelWriterTest extends \PHPUnit_Framework_TestCase
         $writer = new ExcelWriter(new \SplFileObject($file, 'w'), null, 'Xlsx', true);
         $writer->prepare();
         $writer->writeItem(array(
-            'col 1 name'=>'col 1 value',
-            'col 2 name'=>'col 2 value',
-            'col 3 name'=>'col 3 value',
+            'col 1 name' => 'col 1 value',
+            'col 2 name' => 'col 2 value',
+            'col 3 name' => 'col 3 value',
         ));
         $writer->finish();
 
