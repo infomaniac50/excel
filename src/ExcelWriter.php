@@ -1,6 +1,6 @@
 <?php
 
-namespace Port\Excel;
+namespace Port\Spreadsheet;
 
 use Port\Writer;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;

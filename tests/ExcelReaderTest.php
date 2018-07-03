@@ -1,8 +1,8 @@
 <?php
 
-namespace Port\Excel\Tests;
+namespace Port\Spreadsheet\Tests;
 
-use Port\Excel\ExcelReader;
+use Port\Spreadsheet\ExcelReader;
 
 class ExcelReaderTest extends \PHPUnit_Framework_TestCase
 {

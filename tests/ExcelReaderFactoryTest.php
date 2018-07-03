@@ -1,8 +1,8 @@
 <?php
 
-namespace Port\Excel\Tests;
+namespace Port\Spreadsheet\Tests;
 
-use Port\Excel\ExcelReaderFactory;
+use Port\Spreadsheet\ExcelReaderFactory;
 
 class ExcelReaderFactoryTest extends \PHPUnit_Framework_TestCase
 {
@@ -17,7 +17,7 @@ class ExcelReaderFactoryTest extends \PHPUnit_Framework_TestCase
     {
         $factory = new ExcelReaderFactory();
         $reader = $factory->getReader(new \SplFileObject(__DIR__.'/fixtures/data_column_headers.xlsx'));
-        $this->assertInstanceOf('\Port\Excel\ExcelReader', $reader);
+        $this->assertInstanceOf('\Port\Spreadsheet\ExcelReader', $reader);
         $this->assertCount(4, $reader);
 
         $factory = new ExcelReaderFactory(0);

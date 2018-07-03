@@ -1,6 +1,6 @@
 <?php
 
-namespace Port\Excel;
+namespace Port\Spreadsheet;
 
 use Port\Reader\CountableReader;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Port\Excel\Tests;
+namespace Port\Spreadsheet\Tests;
 
-use Port\Excel\ExcelWriter;
+use Port\Spreadsheet\ExcelWriter;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class ExcelWriterTest extends \PHPUnit_Framework_TestCase

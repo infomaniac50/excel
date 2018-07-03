@@ -28,7 +28,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Port\\Excel\\": "src/"
+            "Port\\Spreadsheet\\": "src/"
         }
     },
     "require-dev": {
@@ -36,7 +36,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Port\\Excel\\Tests\\": "tests/"
+            "Port\\Spreadsheet\\Tests\\": "tests/"
         }
     },
     "extra": {
