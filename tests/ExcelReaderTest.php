@@ -26,8 +26,14 @@ namespace Port\Spreadsheet\Tests;
 
 use Port\Spreadsheet\ExcelReader;
 
+/**
+ * {@inheritDoc}
+ */
 class ExcelReaderTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * {@inheritDoc}
+     */
     public function setUp()
     {
         if (!extension_loaded('zip')) {

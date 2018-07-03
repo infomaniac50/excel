@@ -27,8 +27,14 @@ namespace Port\Spreadsheet\Tests;
 use Port\Spreadsheet\ExcelWriter;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
+/**
+ * {@inheritDoc}
+ */
 class ExcelWriterTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * {@inheritDoc}
+     */
     public function setUp()
     {
         if (!extension_loaded('zip')) {
