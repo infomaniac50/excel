@@ -33,7 +33,7 @@ use Port\Writer;
  *
  * @author David de Boer <david@ddeboer.nl>
  */
-class ExcelWriter implements Writer
+class SpreadsheetWriter implements Writer
 {
     /**
      * @var string

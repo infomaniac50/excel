@@ -31,7 +31,7 @@ use Port\Reader\ReaderFactory;
  *
  * @author David de Boer <david@ddeboer.nl>
  */
-class ExcelReaderFactory implements ReaderFactory
+class SpreadsheetReaderFactory implements ReaderFactory
 {
     /**
      * @var int

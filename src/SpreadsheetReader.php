@@ -38,7 +38,7 @@ use Port\Reader\CountableReader;
  * @see http://phpexcel.codeplex.com/
  * @see https://github.com/logiQ/PHPExcel
  */
-class ExcelReader implements CountableReader, \SeekableIterator
+class SpreadsheetReader implements CountableReader, \SeekableIterator
 {
     /**
      * @var array
