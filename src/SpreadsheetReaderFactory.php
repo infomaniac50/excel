@@ -56,10 +56,10 @@ class SpreadsheetReaderFactory implements ReaderFactory
     /**
      * @param \SplFileObject $file
      *
-     * @return ExcelReader
+     * @return SpreadsheetReader
      */
     public function getReader(\SplFileObject $file)
     {
-        return new ExcelReader($file, $this->headerRowNumber, $this->activeSheet);
+        return new SpreadsheetReader($file, $this->headerRowNumber, $this->activeSheet);
     }
 }
