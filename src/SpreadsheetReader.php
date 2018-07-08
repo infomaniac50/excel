@@ -29,14 +29,13 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use Port\Reader\CountableReader;
 
 /**
- * Reads Excel files with the help of PHPExcel
+ * Reads spreadsheet files with the help of PHPSpreadsheet
  *
- * PHPExcel must be installed.
+ * PHPSpreadsheet must be installed.
  *
  * @author David de Boer <david@ddeboer.nl>
  *
- * @see http://phpexcel.codeplex.com/
- * @see https://github.com/logiQ/PHPExcel
+ * @see https://github.com/PHPOffice/PhpSpreadsheet
  */
 class SpreadsheetReader implements CountableReader, \SeekableIterator
 {

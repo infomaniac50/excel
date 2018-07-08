@@ -29,7 +29,7 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use Port\Writer;
 
 /**
- * Writes to an Excel file
+ * Writes to a spreadsheet file
  *
  * @author David de Boer <david@ddeboer.nl>
  */
