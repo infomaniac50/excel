@@ -27,7 +27,7 @@ namespace Port\Spreadsheet;
 use Port\Reader\ReaderFactory;
 
 /**
- * Factory that creates ExcelReaders
+ * Factory that creates SpreadsheetReaders
  *
  * @author David de Boer <david@ddeboer.nl>
  */
