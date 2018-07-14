@@ -24,12 +24,12 @@ SOFTWARE.
  */
 namespace Port\Spreadsheet\Tests;
 
-use Port\Spreadsheet\ExcelReader;
+use Port\Spreadsheet\SpreadsheetReader;
 
 /**
  * {@inheritDoc}
  */
-class ExcelReaderTest extends \PHPUnit_Framework_TestCase
+class SpreadsheetReaderTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * {@inheritDoc}
@@ -47,7 +47,7 @@ class ExcelReaderTest extends \PHPUnit_Framework_TestCase
     public function testCountWithoutHeaders()
     {
         $file   = new \SplFileObject(__DIR__.'/fixtures/data_no_column_headers.xls');
-        $reader = new ExcelReader($file);
+        $reader = new SpreadsheetReader($file);
         $this->assertEquals(3, $reader->count());
     }
 
@@ -57,7 +57,7 @@ class ExcelReaderTest extends \PHPUnit_Framework_TestCase
     public function testCountWithHeaders()
     {
         $file   = new \SplFileObject(__DIR__.'/fixtures/data_column_headers.xlsx');
-        $reader = new ExcelReader($file, 0);
+        $reader = new SpreadsheetReader($file, 0);
         $this->assertEquals(3, $reader->count());
     }
 
@@ -67,7 +67,7 @@ class ExcelReaderTest extends \PHPUnit_Framework_TestCase
     public function testIterate()
     {
         $file   = new \SplFileObject(__DIR__.'/fixtures/data_column_headers.xlsx');
-        $reader = new ExcelReader($file, 0);
+        $reader = new SpreadsheetReader($file, 0);
         foreach ($reader as $row) {
             $this->assertInternalType('array', $row);
             $this->assertEquals(array('id', 'number', 'description'), array_keys($row));
@@ -80,10 +80,10 @@ class ExcelReaderTest extends \PHPUnit_Framework_TestCase
     public function testMultiSheet()
     {
         $file         = new \SplFileObject(__DIR__.'/fixtures/data_multi_sheet.xls');
-        $sheet1reader = new ExcelReader($file, null, 0);
+        $sheet1reader = new SpreadsheetReader($file, null, 0);
         $this->assertEquals(3, $sheet1reader->count());
 
-        $sheet2reader = new ExcelReader($file, null, 1);
+        $sheet2reader = new SpreadsheetReader($file, null, 1);
         $this->assertEquals(2, $sheet2reader->count());
     }
 
@@ -93,7 +93,7 @@ class ExcelReaderTest extends \PHPUnit_Framework_TestCase
     public function testMaxRowNumb()
     {
         $file   = new \SplFileObject(__DIR__.'/fixtures/data_no_column_headers.xls');
-        $reader = new ExcelReader($file, null, null, null, 1000);
+        $reader = new SpreadsheetReader($file, null, null, null, 1000);
         $this->assertEquals(3, $reader->count());
 
         // Without $maxRows, this faulty file causes OOM because of an extremely
@@ -101,7 +101,7 @@ class ExcelReaderTest extends \PHPUnit_Framework_TestCase
         $file = new \SplFileObject(__DIR__.'/fixtures/data_extreme_last_row.xlsx');
 
         $max    = 5;
-        $reader = new ExcelReader($file, null, null, null, $max);
+        $reader = new SpreadsheetReader($file, null, null, null, $max);
         $this->assertEquals($max, $reader->count());
     }
 }

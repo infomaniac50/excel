@@ -25,12 +25,12 @@ SOFTWARE.
 namespace Port\Spreadsheet\Tests;
 
 use PhpOffice\PhpSpreadsheet\IOFactory;
-use Port\Spreadsheet\ExcelWriter;
+use Port\Spreadsheet\SpreadsheetWriter;
 
 /**
  * {@inheritDoc}
  */
-class ExcelWriterTest extends \PHPUnit_Framework_TestCase
+class SpreadsheetWriterTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * {@inheritDoc}
@@ -49,7 +49,7 @@ class ExcelWriterTest extends \PHPUnit_Framework_TestCase
     {
         $file = tempnam(sys_get_temp_dir(), null);
 
-        $writer = new ExcelWriter(new \SplFileObject($file, 'w'), 'Sheet 1');
+        $writer = new SpreadsheetWriter(new \SplFileObject($file, 'w'), 'Sheet 1');
 
         $writer->prepare();
         $writer->writeItem(array('first', 'last'));
@@ -67,7 +67,7 @@ class ExcelWriterTest extends \PHPUnit_Framework_TestCase
         $writer->finish();
 
         // Open file with append mode ('a') to add a sheet
-        $writer = new ExcelWriter(new \SplFileObject($file, 'a'), 'Sheet 2');
+        $writer = new SpreadsheetWriter(new \SplFileObject($file, 'a'), 'Sheet 2');
 
         $writer->prepare();
 
@@ -95,7 +95,7 @@ class ExcelWriterTest extends \PHPUnit_Framework_TestCase
     public function testWriteItemWithoutSheetTitle()
     {
         $outputFile = new \SplFileObject(tempnam(sys_get_temp_dir(), null));
-        $writer     = new ExcelWriter($outputFile);
+        $writer     = new SpreadsheetWriter($outputFile);
 
         $writer->prepare();
 
@@ -105,7 +105,7 @@ class ExcelWriterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test that column names not prepended to first row if ExcelWriter's 4-th
+     * Test that column names not prepended to first row if SpreadsheetWriter's 4-th
      * parameter not given
      *
      * @author  Igor Mukhin <igor.mukhin@gmail.com>
@@ -114,7 +114,7 @@ class ExcelWriterTest extends \PHPUnit_Framework_TestCase
     {
         $file = tempnam(sys_get_temp_dir(), null);
 
-        $writer = new ExcelWriter(new \SplFileObject($file, 'w'), null, 'Xlsx');
+        $writer = new SpreadsheetWriter(new \SplFileObject($file, 'w'), null, 'Xlsx');
         $writer->prepare();
         $writer->writeItem(array(
             'col 1 name' => 'col 1 value',
@@ -133,7 +133,7 @@ class ExcelWriterTest extends \PHPUnit_Framework_TestCase
     /**
      * Test that column names prepended at first row
      * and values have been written at second line
-     * if ExcelWriter's 4-th parameter set to true
+     * if SpreadsheetWriter's 4-th parameter set to true
      *
      * @author  Igor Mukhin <igor.mukhin@gmail.com>
      */
@@ -141,7 +141,7 @@ class ExcelWriterTest extends \PHPUnit_Framework_TestCase
     {
         $file = tempnam(sys_get_temp_dir(), null);
 
-        $writer = new ExcelWriter(new \SplFileObject($file, 'w'), null, 'Xlsx', true);
+        $writer = new SpreadsheetWriter(new \SplFileObject($file, 'w'), null, 'Xlsx', true);
         $writer->prepare();
         $writer->writeItem(array(
             'col 1 name' => 'col 1 value',
