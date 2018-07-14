@@ -19,7 +19,7 @@
     ],
     "support": {
         "issues": "https://github.com/portphp/portphp/issues",
-        "source": "https://github.com/infomaniac50/portphp-spreadsheet",
+        "source": "https://github.com/portphp/excel",
         "docs": "https://portphp.readthedocs.org"
     },
     "require": {
